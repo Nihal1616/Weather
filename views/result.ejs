@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Result</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <div class="container card">
+        <div class="card-body off-set-2">
+        <% if(weather){%>
+            <h3 class="card-title">Weather in <%=weather.city%></h3>
+            <p><i class="fas fa-temperature-high"></i>  &nbsp; Temperature: <%=weather.temp%><sup>o</sup>C</p>
+            <p><i class="fa-solid fa-droplet"></i> &nbsp; Humidity: <%=weather.humidity%></p>
+            <p><i class="fas fa-cloud"></i>&nbsp;Condition: <%=weather.description%></p>
+
+        <%} else{%>
+            <h2><%=error%></h2>
+            <a href="/">retry</a>
+
+            
+            
+        <%}%>
+        <form action="/" method="get">
+            <button class="btn btn-primary">Home</button>
+        </form>
+        </div>
+        
+    </div>
+</body>
+</html>
