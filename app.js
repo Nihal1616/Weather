@@ -5,6 +5,7 @@ const mongoose=require("mongoose");
 const Search = require('./models/search');
 
 
+
 dotenv.config();
 
 const app=express();
@@ -15,9 +16,9 @@ app.set("view engine","ejs");
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
 
-mongoose.connect('mongodb://127.0.0.1:27017/weatherApp', {
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true
+mongoose.connect(process.env.ATLASDB_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 }).then(() => console.log("Connected to MongoDB"))
   .catch(err => console.error("MongoDB connection error:", err));
 
